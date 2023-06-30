@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require("path")
 
 app.use(express.json())
 
@@ -9,6 +10,10 @@ app.get("/getall", function (req, res){
 res.send({result})
 });
 
+app.get("", function (request, response){
+    const dir = path.join(__dirname + "/Public/index.html")
+    return response.sendFile(dir);
+    });
 
 
 
